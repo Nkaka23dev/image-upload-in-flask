@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}" >
+    {%if title%}
+    <title>Upload-{{title}}</title>
+    {%else%}
+    <title>Upload</title>
+    {%endif%}
+  </head>
+  <body>
+    </div>
+    {%block content%}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4  py-4">
+          {%include "_message.html"%}
+          <h2 class="text-muted font-weight-bold">This is the homepage</h2>
+          <strong class="text-danger ml-5">Hello image Uploader
+          </strong>
+          <a href="{{url_for('users.register')}}" class="btn btn-info btn-sm ml-5">upload your image here</a>
+          <p class="ml-5">Click here to see uploaded<a href="{{url_for('users.retrieve')}}"> images</a></p>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+      
+    {%endblock content%}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{url_for('static',filename='js/jquery-3.4.1.slim.min.js')}}" ></script>
+    <script src="{{url_for('static',filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+  </body>
+</html>

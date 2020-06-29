@@ -1,0 +1,25 @@
+{%from "_render_field.html" import render_field%}
+{%extends "index.html"%}
+{%block content%}
+<div class="container">
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 border py-3 mt-3">
+    <form action="" method="POST" enctype="multipart/form-data">
+      {%include "_message.html"%}
+        {{form.hidden_tag()}}
+    <fieldset class="form-group">
+     <legend class="border-bottom font-weight-bold text-info">SignIn</legend>
+     {{render_field(form.name)}}
+     {{render_field(form.password)}}
+       <div class="form-group my-4">
+        {{form.submit(class="btn btn-outline-info")}}
+        Don't have an account?<a href="{{url_for('users.register')}}" class="">Register</a>
+       </div>
+    </fieldset>
+    </form>
+    </div>
+<div class="col-md-4"></div>
+</div>
+</div>
+{%endblock content%}

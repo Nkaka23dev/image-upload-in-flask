@@ -1,0 +1,30 @@
+{%from "_render_field.html" import render_field%}
+{%from "_render_field.html" import render_image_field%}
+{%extends "index.html"%}
+{%block content%}
+<div class="container">
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 border">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{form.hidden_tag()}}
+    <fieldset class="form-group">
+     <legend class="border-bottom font-weight-bold">Create Account</legend>
+     {{render_field(form.name)}}
+     {{render_field(form.password)}}
+     {{render_field(form.comfirm_password)}}
+     {{render_image_field(form.profile)}}
+       <div class="form-group my-4">
+        {{form.submit(class="btn btn-outline-info")}}
+        <p class="py-3">Already have an account?
+          <a href="{{url_for('users.login')}}">Login</a>
+           <a href="{{url_for('main.index')}}"
+            class="btn btn-sm btn-outline-info">home</a></p>
+       </div>
+    </fieldset>
+    </form>
+    </div>
+<div class="col-md-4"></div>
+</div>
+</div>
+{%endblock content%}

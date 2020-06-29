@@ -1,0 +1,26 @@
+{%macro render_field(form_field)%}
+<div class="form-group">
+    {{form_field.label(class="form-control-label font-weight-bold")|safe}}
+    {%if form_field.errors%}
+    {{form_field(class="form-control form-control-md is-invalid")}}
+    {%for error in form_field.errors%}
+    <div class="invalid-feedback">
+      <span>{{error}}</span>
+    </div>
+    {%endfor%}
+    {%else%}
+    {{form_field(class="form-control form-control-md")}}
+    {%endif%}
+   </div>
+{%endmacro%}
+<!-- image macro to be imported -->
+{%macro render_image_field(i_form_field)%}
+<div class="form-group">
+{{i_form_field.label(class="form-control-file font-weight-bold")}}
+{{i_form_field}}
+{%if i_form_field.errors%}
+{%for error in i_form_field.errors%}
+<span class="text-danger">{{error}}</span>
+{%endfor%}
+{%endif%}
+{%endmacro%}
